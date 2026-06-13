@@ -29,14 +29,14 @@ Improve efficiency in the drug supply chain.
 
 # User and Module Identification :
 
-#Users of the System :
+**Users of the System :**
 
  1. Administrator
  2. Vendor / Supplier
  3. Warehouse Manager
  4. Hospital Pharmacist / Medical Institution
 
-#Module List :
+**Module List :**
 
 Module 1: User Management
 Module 2: Drug Inventory Management
