@@ -62,7 +62,14 @@ public Drug addDrug(@RequestBody Drug drug) {
     alert.setPriority("High");
 
     alertRepository.save(alert);
-
+    emailService.sendEmail(
+    "bloodbank.admin@gmail.com",
+    "Out Of Stock Alert",
+    "Medicine Name: " + savedDrug.getDrugName()
+    + "\nCurrent Stock: " + savedDrug.getStock()
+    + "\n\nThe medicine is completely out of stock."
+    + "\nPlease restock immediately."
+);
 }
 
     else if(savedDrug.getStock() < 100 ){
@@ -82,10 +89,12 @@ public Drug addDrug(@RequestBody Drug drug) {
         System.out.println("Alert Saved");
 
         emailService.sendEmail(
-    "admin@gmail.com",
+    "bloodbank.admin@gmail.com",
     "Low Stock Alert",
-    savedDrug.getDrugName() +
-    " stock is below threshold"
+    "Medicine Name: " + savedDrug.getDrugName()
+    + "\nCurrent Stock: " + savedDrug.getStock()
+    + "\n\nStock is below 100 units."
+    + "\nPlease restock immediately."
 );
     }
 
@@ -124,7 +133,17 @@ public Drug updateDrug(
 
     alertRepository.save(alert);
 
+    emailService.sendEmail(
+        "bloodbank.admin@gmail.com",
+        "Out Of Stock Alert",
+        "Medicine Name: " + savedDrug.getDrugName()
+        + "\nCurrent Stock: " + savedDrug.getStock()
+        + "\n\nThe medicine is completely out of stock."
+        + "\nPlease restock immediately."
+    );
 }
+
+
     else if(savedDrug.getStock() < 100 ){
         alertRepository.deleteByDrugName(savedDrug.getDrugName());
 
@@ -138,6 +157,13 @@ public Drug updateDrug(
         alert.setPriority("High");
 
         alertRepository.save(alert);
+        emailService.sendEmail(
+        "bloodbank.admin@gmail.com",
+        "Low Stock Alert",
+        "Medicine Name: " + savedDrug.getDrugName() +
+        "\nCurrent Stock: " + savedDrug.getStock() +
+        "\n\nPlease restock immediately."
+    );
     }
     else {
 
