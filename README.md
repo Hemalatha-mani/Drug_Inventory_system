@@ -47,3 +47,13 @@ Module 6: Drug Request Management
 Module 7: Dashboard & Monitoring
 Module 8: Reports & Analytics
 Module 9: Alert & Notification Management
+
+#  Project Demonstration : 
+
+A complete demonstration of the Drug Inventory Management System is available below.
+
+👉 Demo Video: 
+
+https://drive.google.com/file/d/1_qd4LalTl668Giuqsi1-T66JfR6JXlsF/view?usp=sharing
+
+https://drive.google.com/file/d/1StCl9k2EEc9kER5L-pBXtYJLDDMm8tzg/view?usp=sharing
