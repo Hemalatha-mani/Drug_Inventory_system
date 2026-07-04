@@ -57,3 +57,6 @@ A complete demonstration of the Drug Inventory Management System is available be
 https://drive.google.com/file/d/1_qd4LalTl668Giuqsi1-T66JfR6JXlsF/view?usp=sharing
 
 https://drive.google.com/file/d/1StCl9k2EEc9kER5L-pBXtYJLDDMm8tzg/view?usp=sharing
+
+**Final project presentation :**
+https://docs.google.com/presentation/d/1AuSCLuzWm_Kv40HX-xoIPIqjWMugsUaP/edit?usp=sharing&ouid=101645934744796304666&rtpof=true&sd=true
