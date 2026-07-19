@@ -20,6 +20,7 @@ import com.hemalatha.druginventory.repository.AlertRepository;
 import com.hemalatha.druginventory.repository.DrugRepository;
 import com.hemalatha.druginventory.service.EmailService;
 
+
 @RestController
 @RequestMapping("/api/drugs")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -31,6 +32,7 @@ public class DrugController {
 
     @Autowired
     private EmailService emailService;
+    
 
     public DrugController(DrugRepository repository) {
         this.repository = repository;
@@ -73,11 +75,13 @@ public Drug addDrug(@RequestBody Drug drug) {
 }
 
     else if(savedDrug.getStock() < 100 ){
-        //System.out.println("Inside Alert Condition");
-        System.out.println("Creating Alert for " + savedDrug.getDrugName());
 
+    alertRepository.deleteByDrugName(savedDrug.getDrugName());
 
-        Alert alert = new Alert();
+    //System.out.println("Inside Alert Condition");
+    System.out.println("Creating Alert for " + savedDrug.getDrugName());
+
+    Alert alert = new Alert();
 
         alert.setAlertType("Low Stock");
         alert.setDrugName(savedDrug.getDrugName());
