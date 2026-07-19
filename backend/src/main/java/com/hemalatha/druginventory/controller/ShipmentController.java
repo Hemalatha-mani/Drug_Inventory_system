@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hemalatha.druginventory.entity.Shipment;
 import com.hemalatha.druginventory.repository.ShipmentRepository;
+import com.hemalatha.druginventory.service.EmailService;
 
 
 @RestController
@@ -26,7 +27,8 @@ public class ShipmentController {
 
     @Autowired
     private ShipmentRepository repository;
-    
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping
     public List<Shipment> getAllShipments() {
@@ -68,7 +70,17 @@ public class ShipmentController {
         existing.setStatus(
             shipment.getStatus()
         );
-        
+        if(existing.getStatus().equalsIgnoreCase("Delivered")){
+
+    emailService.sendEmail(
+        "bloodbank.admin@gmail.com",
+        "Shipment Delivered",
+        "Shipment ID : " + existing.getShipmentId()
+        + "\nOrder ID : " + existing.getOrderId()
+        + "\n\nShipment has been delivered successfully."
+    );
+
+}
         return repository.save(existing);
     }
 
